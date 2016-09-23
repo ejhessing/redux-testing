@@ -3,11 +3,18 @@ import App from '../../src/components/app'
 
 
 // Use 'describe' to group together similar tests
-describe('App Component')
+describe('App Component', () => {
+  let component
 
+  beforeEach(() => {
+    component = renderComponent(App)
+  })
 
-// Use 'it' to test a single attrivute of a target
-it ('Shows the correct text')
+  it('shows a comment box', () => {
+    expect(component.find('.comment-box')).to.exist
+  })
 
-// use 'expect' to make an 'assertion' about a target
-expect()
+  it('shows a comment list', () => {
+    expect(component.find('.comment-list')).to.exist
+  })
+})
